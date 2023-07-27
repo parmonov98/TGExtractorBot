@@ -34,7 +34,7 @@ if (isset($request['message']) && isset($request['message']['from'])) {
 
 
   $data = [
-    'chat_id' => $request['message']['from']['id'],
+    'chat_id' => $CHAT_ID,
     'text' => $text,
     'parse_mode' => 'HTML'
   ];
