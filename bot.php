@@ -14,7 +14,9 @@ file_put_contents('updates/' . $request['update_id'] . '.json', json_encode($req
 
 if (isset($request['message']) && isset($request['message']['from'])) {
 
-  $TG_ID = $request['message']['from']['id'];
+  $FROM_ID = $request['message']['from']['id'];
+	
+  $CHAT_ID = $request['message']['chat']['id'];
   
   if (isset($request['message']['text'])) {
     $text = "You can send commands below: \n1. /start\n2. /myid";  
@@ -24,7 +26,7 @@ if (isset($request['message']) && isset($request['message']['from'])) {
     
     
     if ($request['message']['text'] == '/myid') {
-      $text = "Your TG ID: <pre>$TG_ID</pre>";  
+      $text = "USER ID: <pre>$FROM_ID</pre>\nCHAT ID: <pre>$CHAT_ID</pre>\n";  
     }    
   }else{
     $text = 'You can send only text messages!';
@@ -37,9 +39,7 @@ if (isset($request['message']) && isset($request['message']['from'])) {
     'parse_mode' => 'HTML'
   ];
 
-  sendMessage($data, 'sendMessage');
-  echo 'tg_id';
-  die;
+  return sendMessage($data, 'sendMessage');
 }
 
 
