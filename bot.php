@@ -28,15 +28,15 @@ if (isset($request['message']) && isset($request['message']['from'])) {
     if ($request['message']['text'] == '/myid') {
       $text = "USER ID: <pre>$FROM_ID</pre>\nCHAT ID: <pre>$CHAT_ID</pre>\n";  
     }
-      $text = "/start - Start bot \n/myid - To get current chat's id";
+    $text = "/start - Start bot \n/myid - To get current chat's id";
 
-      $data = [
-          'chat_id' => $CHAT_ID,
-          'text' => $text,
-          'parse_mode' => 'HTML'
-      ];
+    $data = [
+      'chat_id' => $CHAT_ID,
+      'text' => $text,
+      'parse_mode' => 'HTML'
+    ];
 
-      return sendMessage($data, 'sendMessage');
+    return sendMessage($data, 'sendMessage');
   }
 
 }
