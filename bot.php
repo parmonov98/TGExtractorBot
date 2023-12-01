@@ -17,15 +17,16 @@ if (isset($request['message']) && isset($request['message']['from'])) {
   $FROM_ID = $request['message']['from']['id'];
 	
   $CHAT_ID = $request['message']['chat']['id'];
-  
+
   if (isset($request['message']['text'])) {
+    $command = $request['message']['text'];
+
     $text = "/start - Start bot \n/myid - To get current chat's id";
-    if ($request['message']['text'] == '/start') {
+    if ($command === '/start') {
       $text = "Welcome to TG ID(Telegram ID extractor bot)! You can send commands below: \n1. /start\n2. /myid";  
     }
-    
-    
-    if ($request['message']['text'] == '/myid') {
+
+    if ($command === '/myid') {
       $text = "USER ID: <pre>$FROM_ID</pre>\nCHAT ID: <pre>$CHAT_ID</pre>\n";  
     }
 
