@@ -21,6 +21,8 @@ if (isset($request['message']) && isset($request['message']['from'])) {
   if (isset($request['message']['text'])) {
     $command = $request['message']['text'];
 
+    file_put_contents('command.txt', $command);
+
     $text = "/start - Start bot \n/myid - To get current chat's id";
     if ($command === '/start') {
       $text = "Welcome to TG ID(Telegram ID extractor bot)! You can send commands below: \n1. /start\n2. /myid";  
