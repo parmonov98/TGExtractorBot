@@ -1,0 +1,13 @@
+{
+    "name": "parmonov98/tgextractor",
+    "description": "The bot is helpful full to extract id of chat ids on Telegram",
+    "type": "project",
+    "authors": [
+        {
+            "name": "murod parmonov",
+            "email": "parmonov98@yandex.ru"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
