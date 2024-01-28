@@ -33,7 +33,7 @@ if (isset($request['message']) && isset($request['message']['from'])) {
         return sendMessage($data, 'sendMessage');
     }
 
-    if ($command === '/myid' || str_contains($command, '\/myid')) {
+    if ($command === '/myid' || str_contains($command, '/myid')) {
       $text = "USER ID: <pre>$FROM_ID</pre>\nCHAT ID: <pre>$CHAT_ID</pre>\n";
         $data = [
             'chat_id' => $CHAT_ID,
