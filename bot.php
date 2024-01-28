@@ -34,7 +34,7 @@ if (isset($request['message']) && isset($request['message']['from'])) {
     }
 
     if ($command === '/myid' || str_contains($command, '/myid')) {
-      $text = "USER ID: <pre>$FROM_ID</pre>\nCHAT ID: <pre>$CHAT_ID</pre>\n";
+      $text = "USER ID: <code>$FROM_ID</code>\nCHAT ID: <code>$CHAT_ID</code>\n";
         $data = [
             'chat_id' => $CHAT_ID,
             'text' => $text,
