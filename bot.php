@@ -30,13 +30,15 @@ if (isset($request['message']) && isset($request['message']['from'])) {
       $text = "USER ID: <pre>$FROM_ID</pre>\nCHAT ID: <pre>$CHAT_ID</pre>\n";  
     }
 
-    $data = [
-      'chat_id' => $CHAT_ID,
-      'text' => $text,
-      'parse_mode' => 'HTML'
-    ];
+    if ($CHAT_ID === $FROM_ID){
+        $data = [
+            'chat_id' => $CHAT_ID,
+            'text' => $text,
+            'parse_mode' => 'HTML'
+        ];
 
-    return sendMessage($data, 'sendMessage');
+        return sendMessage($data, 'sendMessage');
+    }
   }
 
 }
