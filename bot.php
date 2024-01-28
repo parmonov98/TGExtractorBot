@@ -26,10 +26,13 @@ if (isset($request['message']) && isset($request['message']['from'])) {
       $text = "Welcome to TG ID(Telegram ID extractor bot)! You can send commands below: \n1. /start\n2. /myid";  
     }
 
-    if ($command === '/myid') {
+    if ($command === '/myid' || str_contains($command, '\/myid')) {
       $text = "USER ID: <pre>$FROM_ID</pre>\nCHAT ID: <pre>$CHAT_ID</pre>\n";  
     }
 
+    print_r($CHAT_ID);
+    echo "\n";
+    print_r($FROM_ID);
     if ($CHAT_ID === $FROM_ID){
         $data = [
             'chat_id' => $CHAT_ID,
