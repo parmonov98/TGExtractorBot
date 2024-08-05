@@ -34,7 +34,10 @@ if (isset($request['message']) && isset($request['message']['from'])) {
     }
 
     if ($command === '/myid' || str_contains($command, '/myid')) {
-      $text = "USER ID: <code>$FROM_ID</code>\nCHAT ID: <code>$CHAT_ID</code>\n";
+	
+      $FORWARD_CHAT_ID = $request['message']['forward_from_chat']['id'] ?? null;
+
+      $text = "USER ID: <code>$FROM_ID</code>\nCHAT ID: <code>$CHAT_ID</code>\nFORWARD_CHAT ID: <code>$FORWARD_CHAT_ID</code>\n";
         $data = [
             'chat_id' => $CHAT_ID,
             'text' => $text,
